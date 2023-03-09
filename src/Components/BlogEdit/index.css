@@ -1,0 +1,92 @@
+/* Custom scroll */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.btnAdd {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: black;
+  padding: 5px 32px;
+  background-color: rgb(68, 67, 66);
+  cursor: pointer;
+  border: none;
+  height: 50px;
+  width: 100%;
+}
+
+.content-container {
+  overflow: auto;
+  font-size: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  height: calc(100vh - (280px + 45px));
+  
+}
+
+.content-item {
+  background-color: rgb(50, 48, 50);
+  position: relative;
+  box-shadow: 1px 1px 1px 1px rgb(87, 89, 91);
+  padding: 8px 30px;
+  font-size: 14px;
+}
+
+.content-item:hover {
+  background-color: rgb(76, 75, 76);
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+}
+
+.item {
+  padding-left: 12px;
+}
+
+/* .status {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: red;
+} */
+
+.status-item {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 12px;
+  border-radius: 50%;
+  padding: 6px 8px;
+  font-size: 12px;
+}
+
+.status-active {
+  transform: translateY(-5px);
+}
+
+.delete-wrap {
+  position: absolute;
+  top : 50%; 
+  right: 20px;
+  transform: translateY(-50%); 
+}
