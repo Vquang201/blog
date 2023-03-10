@@ -44,6 +44,8 @@ function BlogEdit() {
         navigate(`/blog/id/${index}`)
     }
 
+    console.log(storageData)
+
     return (
         <>
             {
@@ -51,21 +53,21 @@ function BlogEdit() {
                 <>
                     <div className='content-container'>
                         {
-                            storageData && storageData.map((item, index) => (
+                            storageData !== [{}] && storageData !== {} && storageData?.map((item, index) => (
                                 <div key={index} className="content-item">
                                     <div onClick={event => handleClickRecord(event, index)} style={{ cursor: 'pointer' }}>
                                         <div className='align-center' >
                                             <TitleIcon style={{ marginRight: '8px', fontSize: '15px' }} />
-                                            {item.title && item.title}
+                                            {item.title}
                                         </div>
                                         <div>
                                             <span className="status-item" style={{ fontSize: '10px', backgroundColor: `${item.statusColor}` }}>
-                                                {item.status && item.status}
+                                                {item.status}
                                             </span>
                                         </div>
                                         <div className='align-center'>
                                             <DescriptionIcon style={{ marginRight: '8px', fontSize: '15px' }} />
-                                            {item.description && item.description}
+                                            {item.description}
                                         </div>
                                     </div>
 

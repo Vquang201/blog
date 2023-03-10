@@ -44,7 +44,7 @@ function InfoBlog(props) {
                 <Input placeholder='Add Some Description' type='textarea' setData={setDescription} />
                 <label>Tags : </label>
                 <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                    {tags && tags.map((item, index) => (
+                    {tags.map((item, index) => (
                         <div key={index} onClick={() => handleClickStatus(index)} className={`status-item ${selectId === index && 'status-active'}`} style={{ backgroundColor: `${colors[index]}` }}>
                             {item}
                         </div>
