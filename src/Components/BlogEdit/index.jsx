@@ -44,8 +44,6 @@ function BlogEdit() {
         navigate(`/blog/id/${index}`)
     }
 
-    console.log(storageData)
-
     return (
         <>
             {
@@ -53,7 +51,7 @@ function BlogEdit() {
                 <>
                     <div className='content-container'>
                         {
-                            storageData !== [{}] && storageData !== {} && storageData?.map((item, index) => (
+                            Object.keys(storageData).length !== 0 && storageData.map((item, index) => (
                                 <div key={index} className="content-item">
                                     <div onClick={event => handleClickRecord(event, index)} style={{ cursor: 'pointer' }}>
                                         <div className='align-center' >
