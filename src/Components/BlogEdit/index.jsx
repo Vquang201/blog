@@ -43,6 +43,16 @@ function BlogEdit() {
     const handleClickRecord = (event, index) => {
         navigate(`/blog/id/${index}`)
     }
+    const a = [
+        {
+            a: 'ds',
+            b: 'dsd'
+        },
+        {
+            c: 'dsad',
+            d: 'ds'
+        }
+    ]
 
     return (
         <>
@@ -51,7 +61,7 @@ function BlogEdit() {
                 <>
                     <div className='content-container'>
                         {
-                            Object.keys(storageData).length !== 0 && storageData.map((item, index) => (
+                            Object.keys(storageData).length !== 0 && storageData && storageData.map((item, index) => (
                                 <div key={index} className="content-item">
                                     <div onClick={event => handleClickRecord(event, index)} style={{ cursor: 'pointer' }}>
                                         <div className='align-center' >
