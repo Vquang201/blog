@@ -16,7 +16,7 @@ import { updateData } from '../../sdk/Redux/userSlice/userSlice';
 function BlogEdit() {
     const [openEditBlog, setOpenEditBlog] = useState(false)
     const [openAlert, setOpenAlert] = useState(false)
-    const [data, setData] = useState(JSON.parse(localStorage.getItem('data')) ?? [])
+    const [data, setData] = useState(JSON.parse(localStorage.getItem('data')) || ['demo'])
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const storageData = JSON.parse(localStorage.getItem('data'))
@@ -43,7 +43,6 @@ function BlogEdit() {
     const handleClickRecord = (event, index) => {
         navigate(`/blog/id/${index}`)
     }
-    //Object.keys(storageData).length !== 0 &&
 
     return (
         <>
@@ -52,7 +51,7 @@ function BlogEdit() {
                 <>
                     <div className='content-container'>
                         {
-                            storageData && storageData.map((item, index) => (
+                            Object.keys(storageData).length !== 0 && storageData && storageData.map((item, index) => (
                                 <div key={index} className="content-item">
                                     <div onClick={event => handleClickRecord(event, index)} style={{ cursor: 'pointer' }}>
                                         <div className='align-center' >
