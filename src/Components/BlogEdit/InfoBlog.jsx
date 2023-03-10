@@ -11,29 +11,14 @@ function InfoBlog(props) {
     const [status, setStatus] = useState('None')
     const [statusColor, setStatusColor] = useState('#808080')
     const [content, setContent] = useState('Your content ...')
-    const [image, setImage] = useState()
     const [selectId, setSelectId] = useState(false)
     const tags = ['None', 'Mood', 'Quotes', 'Love', 'Family', 'Life']
     const colors = ['#808080', '#00bfff', '#66cdaa', ' #ff80bf', ' #c8981e', '#008000']
 
-    // // hình ảnh file
-    // useEffect(() => {
-    //     // Cleanup func
-    //     return () => {
-    //         image && URL.revokeObjectURL(image.preview)
-    //     }
-    // }, [image])
-
-    // const handlePreviewImage = (e) => {
-    //     const file = e.target.files[0] // chỉ chọn 1 file
-    //     file.preview = URL.createObjectURL(file) // file là 1 obj và có thể thêm 1  thuộc tính 
-    //     setImage(file)
-    // }
-
     const handlePost = () => {
         setOpenEditBlog(false)
         setData(prev => {
-            const newDatas = [...prev, { title, description, status, statusColor, content, image }]
+            const newDatas = [...prev, { title, description, status, statusColor, content }]
             // save localStorage
             const jsonDatas = JSON.stringify(newDatas)
             localStorage.setItem('data', jsonDatas)
@@ -45,7 +30,6 @@ function InfoBlog(props) {
         setStatus(tags[index])
         setSelectId(index)
         setStatusColor(colors[index])
-
     }
 
 
@@ -60,7 +44,7 @@ function InfoBlog(props) {
                 <Input placeholder='Add Some Description' type='textarea' setData={setDescription} />
                 <label>Tags : </label>
                 <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                    {tags.map((item, index) => (
+                    {tags && tags.map((item, index) => (
                         <div key={index} onClick={() => handleClickStatus(index)} className={`status-item ${selectId === index && 'status-active'}`} style={{ backgroundColor: `${colors[index]}` }}>
                             {item}
                         </div>
@@ -68,7 +52,6 @@ function InfoBlog(props) {
                 </div>
                 <label>Content</label>
                 <Input placeholder='Write a content' type='textarea' height={true} setData={setContent} />
-                <br />
                 <br />
 
             </form>

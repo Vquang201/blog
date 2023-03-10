@@ -55,7 +55,7 @@ function InfoEdit(props) {
                 <label>Profile Picture</label>
                 <div className='input-image-container'>
                     {
-                        array.map((value, index) => (
+                        array && array.map((value, index) => (
                             <img key={index} className={`input-image ${ChooseImg === index && 'active'}`} src={value} onClick={(e) => handleClickImg(e, index)} />
                         ))
                     }

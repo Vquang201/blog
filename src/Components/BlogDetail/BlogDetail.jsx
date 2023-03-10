@@ -65,8 +65,6 @@ function BlogDetail() {
                     </div>
                     <h1 className='blog-title'>{user.data[id].title}</h1>
                     <p className='blog-description'>{user.data[id].description}</p>
-                    {/* <p className='blog-status'>{user.data[id].status}</p> */}
-                    {/* <img src={user.data[5].image.preview} alt='img' /> */}
                     <p className='blog-content'>
                         {user.data[id].content}
                     </p>
