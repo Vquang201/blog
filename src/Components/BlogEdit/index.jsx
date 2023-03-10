@@ -59,7 +59,7 @@ function BlogEdit() {
             {
                 !openEditBlog &&
                 <>
-                    <div className='content-container'>
+                    {/* <div className='content-container'>
                         {
                             Object.keys(storageData).length !== 0 && storageData && storageData.map((item, index) => (
                                 <div key={index} className="content-item">
@@ -87,7 +87,7 @@ function BlogEdit() {
                                 </div>
                             ))
                         }
-                    </div>
+                    </div> */}
 
                     <AlertDeleTe openAlert={openAlert} setOpenAlert={setOpenAlert} />
                     <button onClick={() => handleAdd()} className="btnAdd">
