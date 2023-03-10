@@ -16,7 +16,7 @@ import { updateData } from '../../sdk/Redux/userSlice/userSlice';
 function BlogEdit() {
     const [openEditBlog, setOpenEditBlog] = useState(false)
     const [openAlert, setOpenAlert] = useState(false)
-    const [data, setData] = useState(JSON.parse(localStorage.getItem('data')) || [])
+    const [data, setData] = useState(JSON.parse(localStorage.getItem('data')) ?? [])
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const storageData = JSON.parse(localStorage.getItem('data'))
@@ -43,25 +43,16 @@ function BlogEdit() {
     const handleClickRecord = (event, index) => {
         navigate(`/blog/id/${index}`)
     }
-    const a = [
-        {
-            a: 'ds',
-            b: 'dsd'
-        },
-        {
-            c: 'dsad',
-            d: 'ds'
-        }
-    ]
+    //Object.keys(storageData).length !== 0 &&
 
     return (
         <>
             {
                 !openEditBlog &&
                 <>
-                    {/* <div className='content-container'>
+                    <div className='content-container'>
                         {
-                            Object.keys(storageData).length !== 0 && storageData && storageData.map((item, index) => (
+                            storageData && storageData.map((item, index) => (
                                 <div key={index} className="content-item">
                                     <div onClick={event => handleClickRecord(event, index)} style={{ cursor: 'pointer' }}>
                                         <div className='align-center' >
@@ -87,7 +78,7 @@ function BlogEdit() {
                                 </div>
                             ))
                         }
-                    </div> */}
+                    </div>
 
                     <AlertDeleTe openAlert={openAlert} setOpenAlert={setOpenAlert} />
                     <button onClick={() => handleAdd()} className="btnAdd">
