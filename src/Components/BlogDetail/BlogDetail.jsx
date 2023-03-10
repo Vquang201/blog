@@ -35,7 +35,7 @@ function BlogDetail() {
                         <div className='flex'>
                             <div>
                                 <IconButton title='Back' onClick={handleBack}>
-                                    <ArrowBackIosNewOutlinedIcon style={{ color: `${toggle ? 'white' : ''}` }} />
+                                    <ArrowBackIosNewOutlinedIcon style={{ color: `${toggle ? 'white' : 'black'}` }} />
                                 </IconButton>
                             </div>
                             <img className='blog-ava' src={user.avaURL} alt="" />

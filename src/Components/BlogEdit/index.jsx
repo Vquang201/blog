@@ -56,14 +56,16 @@ function BlogEdit() {
                                     <div onClick={event => handleClickRecord(event, index)} style={{ cursor: 'pointer' }}>
                                         <div className='align-center' >
                                             <TitleIcon style={{ marginRight: '8px', fontSize: '15px' }} />
-                                            {item.title}
+                                            {item.title && item.title}
                                         </div>
                                         <div>
-                                            <span className="status-item" style={{ fontSize: '10px', backgroundColor: `${item.statusColor}` }}>{item.status}</span>
+                                            <span className="status-item" style={{ fontSize: '10px', backgroundColor: `${item.statusColor}` }}>
+                                                {item.status && item.status}
+                                            </span>
                                         </div>
                                         <div className='align-center'>
                                             <DescriptionIcon style={{ marginRight: '8px', fontSize: '15px' }} />
-                                            {item.description}
+                                            {item.description && item.description}
                                         </div>
                                     </div>
 
