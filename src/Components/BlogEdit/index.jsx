@@ -51,31 +51,34 @@ function BlogEdit() {
                 <>
                     <div className='content-container'>
                         {
-                            Object.keys(storageData).length !== 0 && storageData && storageData.map((item, index) => (
-                                <div key={index} className="content-item">
-                                    <div onClick={event => handleClickRecord(event, index)} style={{ cursor: 'pointer' }}>
-                                        <div className='align-center' >
-                                            <TitleIcon style={{ marginRight: '8px', fontSize: '15px' }} />
-                                            {item.title}
+                            Object.keys(storageData).length === 0
+                                ? <div></div>
+                                : storageData.map((item, index) => (
+                                    <div key={index} className="content-item">
+                                        <div onClick={event => handleClickRecord(event, index)} style={{ cursor: 'pointer' }}>
+                                            <div className='align-center' >
+                                                <TitleIcon style={{ marginRight: '8px', fontSize: '15px' }} />
+                                                {item.title}
+                                            </div>
+                                            <div>
+                                                <span className="status-item" style={{ fontSize: '10px', backgroundColor: `${item.statusColor}` }}>
+                                                    {item.status}
+                                                </span>
+                                            </div>
+                                            <div className='align-center'>
+                                                <DescriptionIcon style={{ marginRight: '8px', fontSize: '15px' }} />
+                                                {item.description}
+                                            </div>
                                         </div>
-                                        <div>
-                                            <span className="status-item" style={{ fontSize: '10px', backgroundColor: `${item.statusColor}` }}>
-                                                {item.status}
-                                            </span>
-                                        </div>
-                                        <div className='align-center'>
-                                            <DescriptionIcon style={{ marginRight: '8px', fontSize: '15px' }} />
-                                            {item.description}
-                                        </div>
-                                    </div>
 
-                                    <div className='delete-wrap' title="Delete">
-                                        <IconButton onClick={(event) => handleDelete(event, index)}>
-                                            <DeleteIcon style={{ color: 'white' }} />
-                                        </IconButton>
+                                        <div className='delete-wrap' title="Delete">
+                                            <IconButton onClick={(event) => handleDelete(event, index)}>
+                                                <DeleteIcon style={{ color: 'white' }} />
+                                            </IconButton>
+                                        </div>
                                     </div>
-                                </div>
-                            ))
+                                ))
+
                         }
                     </div>
 
