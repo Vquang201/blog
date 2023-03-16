@@ -20,6 +20,9 @@ function BlogEdit() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const storageData = JSON.parse(localStorage.getItem('data'))
+    if (Object.keys(storageData).length === 0) {
+        localStorage.setItem('data', JSON.stringify(['']))
+    }
     console.log("🚀 ~ file: index.jsx:23 ~ BlogEdit ~ storageData:", storageData)
     console.log(Object.keys(storageData).length !== 0)
     console.log('check storagedata', storageData === null)
@@ -46,6 +49,7 @@ function BlogEdit() {
         navigate(`/blog/id/${index}`)
     }
 
+
     return (
         <>
             {
@@ -53,7 +57,7 @@ function BlogEdit() {
                 <>
                     <div className='content-container'>
                         {
-                            storageData && Object.keys(storageData).length !== 0 && storageData.map((item, index) => (
+                            storageData && storageData.map((item, index) => (
                                 <div key={index} className="content-item">
                                     <div onClick={event => handleClickRecord(event, index)} style={{ cursor: 'pointer' }}>
                                         <div className='align-center' >
