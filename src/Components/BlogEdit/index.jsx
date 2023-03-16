@@ -22,6 +22,7 @@ function BlogEdit() {
     const storageData = JSON.parse(localStorage.getItem('data'))
     console.log("🚀 ~ file: index.jsx:23 ~ BlogEdit ~ storageData:", storageData)
     console.log(Object.keys(storageData).length !== 0)
+    console.log('check storagedata', storageData === null)
     useEffect(() => {
         const updateBlog = {
             data: [...storageData],
@@ -52,7 +53,7 @@ function BlogEdit() {
                 <>
                     <div className='content-container'>
                         {
-                            Object.keys(storageData).length !== 0 && storageData && storageData.map((item, index) => (
+                            storageData && Object.keys(storageData).length !== 0 && storageData.map((item, index) => (
                                 <div key={index} className="content-item">
                                     <div onClick={event => handleClickRecord(event, index)} style={{ cursor: 'pointer' }}>
                                         <div className='align-center' >
