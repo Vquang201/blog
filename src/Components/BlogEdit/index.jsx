@@ -14,7 +14,6 @@ import { updateData } from '../../sdk/Redux/userSlice/userSlice';
 
 
 function BlogEdit() {
-    localStorage.setItem('data', JSON.stringify([]))
     const [openEditBlog, setOpenEditBlog] = useState(false)
     const [openAlert, setOpenAlert] = useState(false)
     const [data, setData] = useState(JSON.parse(localStorage.getItem('data')) || [])
@@ -22,6 +21,9 @@ function BlogEdit() {
     const dispatch = useDispatch()
     const storageData = JSON.parse(localStorage.getItem('data'))
     console.log("🚀 ~ file: index.jsx:23 ~ BlogEdit ~ storageData:", storageData)
+    if (storageData === null) {
+        localStorage.setItem('data', JSON.stringify([]))
+    }
     useEffect(() => {
         const updateBlog = {
             data: [...storageData],
