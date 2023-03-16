@@ -16,11 +16,12 @@ import { updateData } from '../../sdk/Redux/userSlice/userSlice';
 function BlogEdit() {
     const [openEditBlog, setOpenEditBlog] = useState(false)
     const [openAlert, setOpenAlert] = useState(false)
-    const [data, setData] = useState(JSON.parse(localStorage.getItem('data')) || ['demo'])
+    const [data, setData] = useState(JSON.parse(localStorage.getItem('data')) || [])
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const storageData = JSON.parse(localStorage.getItem('data'))
-
+    console.log("🚀 ~ file: index.jsx:23 ~ BlogEdit ~ storageData:", storageData)
+    console.log(Object.keys(storageData).length !== 0)
     useEffect(() => {
         const updateBlog = {
             data: [...storageData],
@@ -51,33 +52,31 @@ function BlogEdit() {
                 <>
                     <div className='content-container'>
                         {
-                            Object.keys(storageData).length === 0
-                                ? <div></div>
-                                : storageData.map((item, index) => (
-                                    <div key={index} className="content-item">
-                                        <div onClick={event => handleClickRecord(event, index)} style={{ cursor: 'pointer' }}>
-                                            <div className='align-center' >
-                                                <TitleIcon style={{ marginRight: '8px', fontSize: '15px' }} />
-                                                {item.title}
-                                            </div>
-                                            <div>
-                                                <span className="status-item" style={{ fontSize: '10px', backgroundColor: `${item.statusColor}` }}>
-                                                    {item.status}
-                                                </span>
-                                            </div>
-                                            <div className='align-center'>
-                                                <DescriptionIcon style={{ marginRight: '8px', fontSize: '15px' }} />
-                                                {item.description}
-                                            </div>
+                            Object.keys(storageData).length !== 0 && storageData && storageData.map((item, index) => (
+                                <div key={index} className="content-item">
+                                    <div onClick={event => handleClickRecord(event, index)} style={{ cursor: 'pointer' }}>
+                                        <div className='align-center' >
+                                            <TitleIcon style={{ marginRight: '8px', fontSize: '15px' }} />
+                                            {item.title}
                                         </div>
-
-                                        <div className='delete-wrap' title="Delete">
-                                            <IconButton onClick={(event) => handleDelete(event, index)}>
-                                                <DeleteIcon style={{ color: 'white' }} />
-                                            </IconButton>
+                                        <div>
+                                            <span className="status-item" style={{ fontSize: '10px', backgroundColor: `${item.statusColor}` }}>
+                                                {item.status}
+                                            </span>
+                                        </div>
+                                        <div className='align-center'>
+                                            <DescriptionIcon style={{ marginRight: '8px', fontSize: '15px' }} />
+                                            {item.description}
                                         </div>
                                     </div>
-                                ))
+
+                                    <div className='delete-wrap' title="Delete">
+                                        <IconButton onClick={(event) => handleDelete(event, index)}>
+                                            <DeleteIcon style={{ color: 'white' }} />
+                                        </IconButton>
+                                    </div>
+                                </div>
+                            ))
 
                         }
                     </div>
