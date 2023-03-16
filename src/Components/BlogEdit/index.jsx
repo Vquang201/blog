@@ -20,12 +20,10 @@ function BlogEdit() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const storageData = JSON.parse(localStorage.getItem('data'))
+    console.log("🚀 ~ file: index.jsx:23 ~ BlogEdit ~ storageData:", storageData)
     if (Object.keys(storageData).length === 0) {
         localStorage.setItem('data', JSON.stringify(['']))
     }
-    console.log("🚀 ~ file: index.jsx:23 ~ BlogEdit ~ storageData:", storageData)
-    console.log(Object.keys(storageData).length !== 0)
-    console.log('check storagedata', storageData === null)
     useEffect(() => {
         const updateBlog = {
             data: [...storageData],
